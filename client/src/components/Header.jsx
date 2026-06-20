@@ -43,9 +43,9 @@ const Header = () => {
           {/* GÓC PHẢI: Nút Đăng nhập & Hamburger Menu (Mobile) */}
           <div className="flex-1 flex justify-end items-center gap-4">
             {/* Nút Đăng nhập (ẩn trên màn hình quá nhỏ) */}
-            <button className="hidden sm:block bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white font-semibold py-2.5 px-6 rounded-full transition-all duration-300 shadow-md shadow-sky-200 hover:shadow-lg hover:-translate-y-0.5">
+            <Link to="/upload" className="hidden sm:block bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white font-semibold py-2.5 px-6 rounded-full transition-all duration-300 shadow-md shadow-sky-200 hover:shadow-lg hover:-translate-y-0.5">
               Dùng Miễn Phí
-            </button>
+            </Link>
 
             {/* Nút Hamburger cho Mobile */}
             <button 
@@ -72,9 +72,9 @@ const Header = () => {
           <Link to="/about" className="block px-3 py-2.5 rounded-md text-base font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-colors">Giới thiệu</Link>
           <Link to="/contact" className="block px-3 py-2.5 rounded-md text-base font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-colors">Liên hệ</Link>
           <div className="pt-4 pb-2 sm:hidden">
-            <button className="w-full bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white font-semibold py-2.5 px-6 rounded-full transition-colors duration-300 shadow-md">
+            <Link to="/upload" className="w-full bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white font-semibold py-2.5 px-6 rounded-full transition-colors duration-300 shadow-md">
               Dùng Miễn Phí
-            </button>
+            </Link>
           </div>
         </div>
       </div>

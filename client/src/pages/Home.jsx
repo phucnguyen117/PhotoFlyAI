@@ -1,10 +1,36 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
+
 import { 
   Upload, PlayCircle, Users, CheckCircle2, Zap, Image as ImageIcon, 
   Wand2, Crop, Palette, Download, Star, ChevronDown, Check, ArrowRight
 } from 'lucide-react';
-import beforeImg from "../assets/user.jpg";
-import afterImg from "../assets/user2.jpg";
+import before from "../assets/before.jpg";
+import after from "../assets/after.jpg";
+import before1 from "../assets/before1.jpg";
+import after1 from "../assets/after1.jpg";
+import before2 from "../assets/before2.jpeg";
+import after2 from "../assets/after2.jpg";
+import before3 from "../assets/before3.jpg";
+import after3 from "../assets/after3.jpg";
+
+const demoResults = [
+  {
+    id: 1,
+    before: before1,
+    after: after1,
+  },
+  {
+    id: 2,
+    before: before2,
+    after: after2,
+  },
+  {
+    id: 3,
+    before: before3,
+    after: after3,
+  },
+];
 
 // --- DATA MẪU --- //
 const stats = [
@@ -90,10 +116,10 @@ export default function Home() {
                 Không cần ra studio, không cần biết Photoshop. Tải lên ảnh selfie của bạn và để AI của chúng tôi tự động xóa nền, căn chỉnh và xuất ảnh chuẩn quốc tế ngay lập tức.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-full transition-all shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50 hover:-translate-y-1">
+                <Link to="/upload" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-full transition-all shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50 hover:-translate-y-1">
                   <Upload className="w-5 h-5" />
                   Tải ảnh lên ngay
-                </button>
+                </Link>
                 <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold py-4 px-8 rounded-full transition-all border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1">
                   <PlayCircle className="w-5 h-5 text-sky-500" />
                   Xem Demo
@@ -108,13 +134,13 @@ export default function Home() {
                 <div className="relative h-full w-full rounded-2xl overflow-hidden group">
                   {/* Before (Mô phỏng bằng màu xám nhạt và icon) */}
                 <img
-                  src={beforeImg}
+                  src={before}
                   alt="Before"
                   className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
                 />
                   {/* After (Hover state) - Nền xanh ảnh thẻ */}
                 <img
-                  src={afterImg}
+                  src={after}
                   alt="After"
                   className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                 />
@@ -216,11 +242,11 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="group relative aspect-[3/4] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl hover:shadow-sky-200 transition-all duration-500">
+            {demoResults.map((item) => (
+              <div key={item.id} className="group relative aspect-[3/4] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl hover:shadow-sky-200 transition-all duration-500">
                 {/* Lớp nền mô phỏng ảnh sau khi xử lý */}
                 <img
-                  src={afterImg}
+                  src={item.after}
                   alt="After"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -231,7 +257,7 @@ export default function Home() {
                 {/* Lớp phủ mô phỏng ảnh gốc (sẽ mờ đi khi hover) */}
                 <div className="absolute inset-0 bg-slate-300 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
                 <img
-                  src={beforeImg}
+                  src={item.before}
                   alt="Before"
                   className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                 />                  
